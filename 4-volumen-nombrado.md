@@ -104,6 +104,9 @@ docker run -d --name server-drupal --publish published=9700,target=80 -v <nombre
 <img width="1656" height="858" alt="{BF29FD87-3CAA-4134-8531-D771827C7FE2}" src="https://github.com/user-attachments/assets/a302a1c0-6ab8-408a-b60f-a62cd95a84e9" />
 
 
+<img width="1920" height="923" alt="{659B37F2-38F3-46C4-9B92-CE080E065D62}" src="https://github.com/user-attachments/assets/06d51d05-7414-45dc-8b7e-f27d934777c4" />
+
+
 _La instalación puede tomar varios minutos, mientras espera realice un diagrama de los contenedores que ha creado en este apartado._
 
 # COMPLETAR CON EL DIAGRAMA SOLICITADO
