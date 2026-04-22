@@ -10,6 +10,11 @@ docker volume create <nombre volumen>
 ### Crear el volumen nombrado: vol-postgres
 # COMPLETAR CON EL COMANDO
 
+docker volume create vol-postgres
+
+<img width="527" height="57" alt="{F611302C-D5D7-4405-B325-C4718297325B}" src="https://github.com/user-attachments/assets/39702c51-85fe-4364-8b57-e758de3535b2" />
+
+
 ## MOUNTPOINT
 Un mountpoint se refiere al lugar en el sistema de archivos donde un dispositivo de almacenamiento se une (o monta) al sistema de archivos. Es el punto donde los archivos y directorios almacenados en ese dispositivo de almacenamiento son accesibles para el sistema operativo y las aplicaciones.
 
@@ -40,6 +45,10 @@ docker run -d --name <nombre contenedor> --mount type=volume,src=<nombre >,dst=<
 
 ### Crear la red net-drupal de tipo bridge
 # COMPLETAR CON EL COMANDO
+docker network create net-drupal
+
+<img width="697" height="72" alt="{33F37F0E-8E54-48E3-B81B-436A750F551E}" src="https://github.com/user-attachments/assets/51d835f7-2638-43b8-bec5-af32d530a871" />
+
 
 ### Crear un servidor postgres vinculado a la red net-drupal, completar la ruta del contenedor
 ```
@@ -47,10 +56,21 @@ docker run -d --name server-postgres -e POSTGRES_DB=db_drupal -e POSTGRES_PASSWO
 ```
 _No es necesario exponer el puerto, debido a que nos vamos a conectar desde la misma red de docker_
 
+
+docker run -d --name server-postgres -e POSTGRES_DB=db_drupal -e POSTGRES_PASSWORD=12345 -e POSTGRES_USER=user_drupal -v vol-postgres:/var/lib/postgresql/data --network net-drupal postgres
+
+<img width="993" height="433" alt="{89ECE307-959E-4C8A-8693-2A0C60D895A2}" src="https://github.com/user-attachments/assets/5211db0d-7de4-433f-bc82-5089e22d24de" />
+
+
 ### Crear un cliente postgres vinculado a la red drupal a partir de la imagen dpage/pgadmin4, completar el correo
 ```
 docker run -d --name client-postgres --publish published=9500,target=80 -e PGADMIN_DEFAULT_PASSWORD=54321 -e PGADMIN_DEFAULT_EMAIL=<correo> --network net-drupal dpage/pgadmin4
 ```
+
+docker run -d --name client-postgres --publish published=9500,target=80 -e PGADMIN_DEFAULT_PASSWORD=54321 -e PGADMIN_DEFAULT_EMAIL=hernandez.mayeli2004@gmail.com --network net-drupal dpage/pgadmin4
+
+<img width="981" height="81" alt="{00A3B747-EF52-43B8-8772-087E8B3CA234}" src="https://github.com/user-attachments/assets/c5b99d96-c441-4d47-b605-591e35e10da2" />
+
 
 ### Usar el cliente postgres para conectarse al servidor postgres, para la conexión usar el nombre del servidor en lugar de la dirección IP.
 
