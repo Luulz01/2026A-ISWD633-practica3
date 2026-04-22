@@ -78,6 +78,8 @@ docker run -d --name client-postgres --publish published=9500,target=80 -e PGADM
 
 <img width="1920" height="946" alt="{82D129C8-0856-4F5E-9439-587C2DD1A6FD}" src="https://github.com/user-attachments/assets/cb8f0fa8-77ae-4d7d-8aff-5b9475f4beb0" />
 
+<img width="1879" height="883" alt="{426426CA-4A1A-4979-B477-5C19AD23B09F}" src="https://github.com/user-attachments/assets/be5f299d-2096-4fe2-9654-ef043d1454ec" />
+
 
 ### Crear los volúmenes necesarios para drupal, esto se puede encontrar en la documentación
 ### COMPLETAR CON LOS COMANDOS
