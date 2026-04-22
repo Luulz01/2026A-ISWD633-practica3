@@ -57,9 +57,9 @@ docker run -d --name server-postgres -e POSTGRES_DB=db_drupal -e POSTGRES_PASSWO
 _No es necesario exponer el puerto, debido a que nos vamos a conectar desde la misma red de docker_
 
 
-docker run -d --name server-postgres -e POSTGRES_DB=db_drupal -e POSTGRES_PASSWORD=12345 -e POSTGRES_USER=user_drupal -v vol-postgres:/var/lib/postgresql/data --network net-drupal postgres
+docker run -d --name server-postgres -e POSTGRES_DB=db_drupal -e POSTGRES_PASSWORD=12345 -e POSTGRES_USER=user_drupal -v vol-postgres:/var/lib/postgresql/data --network net-drupal postgres:14
 
-<img width="993" height="433" alt="{89ECE307-959E-4C8A-8693-2A0C60D895A2}" src="https://github.com/user-attachments/assets/5211db0d-7de4-433f-bc82-5089e22d24de" />
+<img width="991" height="491" alt="{0A5FC1B9-B1CA-4C3E-A3DE-BE2E259B1EDE}" src="https://github.com/user-attachments/assets/0d51eb19-c6ea-4e0c-90ee-bdb329bd7d32" />
 
 
 ### Crear un cliente postgres vinculado a la red drupal a partir de la imagen dpage/pgadmin4, completar el correo
@@ -74,16 +74,33 @@ docker run -d --name client-postgres --publish published=9500,target=80 -e PGADM
 
 ### Usar el cliente postgres para conectarse al servidor postgres, para la conexión usar el nombre del servidor en lugar de la dirección IP.
 
+<img width="1920" height="957" alt="{A9792A1A-DA8D-4221-B637-76B06948EDF2}" src="https://github.com/user-attachments/assets/a37fad2d-b0c4-4e66-b66e-de0a6d46d1b0" />
+
+<img width="1920" height="946" alt="{82D129C8-0856-4F5E-9439-587C2DD1A6FD}" src="https://github.com/user-attachments/assets/cb8f0fa8-77ae-4d7d-8aff-5b9475f4beb0" />
+
+
 ### Crear los volúmenes necesarios para drupal, esto se puede encontrar en la documentación
 ### COMPLETAR CON LOS COMANDOS
+
+<img width="669" height="244" alt="{2372FF32-CA95-4CF4-ADDF-2AD63EADD7E4}" src="https://github.com/user-attachments/assets/cb2f217a-6515-4935-adc5-b00108cab098" />
+
 
 ### Crear el contenedor server-drupal vinculado a la red, usar la imagen drupal, y vincularlo a los volúmenes nombrados
 ```
 docker run -d --name server-drupal --publish published=9700,target=80 -v <nombre volumen>:<ruta contenedor> -v <nombre volumen>:<ruta contenedor> -v <nombre volumen>:<ruta contenedor> -v <nombre volumen>:<ruta contenedor> --network net-drupal drupal
 ```
 
+<img width="982" height="618" alt="{906870AF-CA28-4B9C-9F40-7355FBDD2233}" src="https://github.com/user-attachments/assets/367a4320-6191-46de-996a-ca2458f5abfc" />
+
+
 ### Ingrese al server-drupal y siga el paso a paso para la instalación.
 # COMPLETAR CON UNA CAPTURA DE PANTALLA DEL PASO 4
+
+<img width="1907" height="972" alt="{68A87320-373A-4A0C-BBC5-1E27D4039F89}" src="https://github.com/user-attachments/assets/f89bd95f-24a8-4564-b7a4-bb5c86d325ef" />
+
+
+<img width="1656" height="858" alt="{BF29FD87-3CAA-4134-8531-D771827C7FE2}" src="https://github.com/user-attachments/assets/a302a1c0-6ab8-408a-b60f-a62cd95a84e9" />
+
 
 _La instalación puede tomar varios minutos, mientras espera realice un diagrama de los contenedores que ha creado en este apartado._
 
