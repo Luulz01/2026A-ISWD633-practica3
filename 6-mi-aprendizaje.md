@@ -39,12 +39,27 @@ Comprendí que los volúmenes nombrados son fundamentales para garantizar la per
 - **docker run -d --name `<nombre>` --mount type=volume,src=`<volumen>`,dst=`<ruta>` `<imagen>`:**  
   Crea un contenedor utilizando la sintaxis avanzada de montaje de volúmenes.
 
+- **docker run -d --name `<nombre_contenedor>` -v `<ruta_contenedor>` `<imagen>`:**  
+  Crea un contenedor con un volumen anónimo en la ruta especificada.
+
+- **docker run -d --name `<nombre_contenedor>` --mount type=volume,target=`<ruta_contenedor>` `<imagen>`:**  
+  Crea un contenedor utilizando la sintaxis avanzada con volumen anónimo.
+
+- **docker rm -fv `<nombre_contenedor>`:**  
+  Elimina el contenedor y también el volumen anónimo asociado.
+
+- **docker volume prune:**  
+  Elimina todos los volúmenes anónimos que no están siendo utilizados (dangling volumes).
+
 ### Cosas que realicé y aprendí
 - Creé volúmenes nombrados para almacenar datos de PostgreSQL.
 - Comprendí cómo Docker guarda los datos en rutas internas como: /var/lib/docker/volumes/<nombre>/_data
 - Logré conectar pgAdmin con PostgreSQL usando el nombre del contenedor como host.
 - Implementé Drupal con múltiples volúmenes para persistir configuraciones, módulos y archivos.
 - Observé que al eliminar contenedores, la información permanece gracias a los volúmenes.
+
+### Problema 
+Durante la práctica en el apartado 2 se pedia utilizar un template de la página https://html5up.net/ para descomprirlo dentro de la carpeta html que era el servidor de nginx. Sin embargo, al realizar esto, descargué una plantilla y no se me mostraba nada en el servidor y era porque no contaba con un archivo html que cargara el template. Por lo que, me tocó descargar otro template y con este si continué realizando la práctica y funcionó adecuadamente.
 
 ### ¿Qué ventaja tienen los volúmenes nombrados frente a los bind mounts?
 Los volúmenes nombrados son gestionados directamente por Docker, lo que permite mayor portabilidad, seguridad y facilidad de uso, ya que no dependen de rutas específicas del sistema operativo. Además, reducen errores de configuración y son ideales para entornos productivos.
